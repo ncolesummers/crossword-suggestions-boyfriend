@@ -1,8 +1,8 @@
 spin_manifest_version = 2
 
 [application]
-authors = ["Matt Butcher <matt.butcher@fermyon.com>"]
-description = ""
+authors = ["Nate Cole Summers <nsummers72@gmail.com>"]
+description = "A crossword helper boyfriend that uses AI to help you solve crosswords. It provides suggestions for words that fit the pattern you've entered, and it can also help you find the right word for a clue."
 name = "crossword-helper"
 version = "1.1.0"
 
