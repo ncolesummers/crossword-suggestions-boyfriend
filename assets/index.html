@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Crossword Bae ❤️</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script>
@@ -20,12 +20,12 @@
             //document.getElementById("response").innerHTML = ""
             document.getElementById("question").innerHTML = "<h2>Last Question: " + prompt + "</h2><hr>"
             document.getElementById("prompt").value = ""
-            document.getElementById("prompt").placeholder = "Waiting for the Llama... 🦙"
+            document.getElementById("prompt").placeholder = "Bae is thinking..."
             console.log("sending query to server with ID " + session)
             fetch("/api/question/" + session, { method: "POST", body: prompt }).then(response => response.json()).then(data => {
                 console.log("heard back from server")
                 console.log(data)
-                document.getElementById("prompt").placeholder = "🦙 The llama has spoken"
+                document.getElementById("prompt").placeholder = "So Speaketh Bae"
 
                 // Just print the last item in the array
                 i = data.length - 1
@@ -35,43 +35,160 @@
 
         }
     </script>
+    <script>
+        // Adjust the number of hearts based on the window size
+        window.addEventListener('resize', adjustHearts);
+    
+        function adjustHearts() {
+            const heartsRow = document.querySelector('.hearts-row');
+            const heartCount = Math.floor(window.innerWidth / 100);
+    
+            while (heartsRow.firstChild) {
+                heartsRow.firstChild.remove();
+            }
+    
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heartsRow.appendChild(heart);
+            }
+        }
+    
+        // Call the function initially to set the correct number of hearts
+        adjustHearts();
+    </script>
+    <style>
+        body {
+            background:
+                linear-gradient(90deg, #000 1px, transparent 1px),
+                linear-gradient(#000 1px, transparent 1px),
+                #fff;
+            background-size: 20px 20px;
+        }
+
+        h1 {
+            text-align: center;
+            /* Darker pink for the title */
+            color: #ff7f7f;
+            /* shadow for the text */
+            text-shadow: 0px 0px 10px rgba(255, 127, 127, 0.7);
+
+        }
+
+        .btn-primary {
+            background-color: #ff7f7f;
+            /* Darker pink for the button */
+            border-color: #ff7f7f;
+            /* Darker pink for the button border */
+        }
+
+        .btn-primary:hover {
+            background-color: #ff4d4d;
+            /* Slightly darker pink when hovered */
+            border-color: #ff4d4d;
+            /* Slightly darker pink border when hovered */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            /* White container */
+            border-radius: 15px;
+            /* Rounded corners */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow */
+        }
+
+        .form-label {
+            font-size: 1.2em;
+            color: #ff7f7f;
+            /* Darker pink for the label */
+        }
+
+        /* Subtle pulse animation for the container */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 127, 127, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 127, 127, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 127, 127, 0);
+            }
+        }
+
+        .container:hover {
+            animation: pulse 2s infinite;
+        }
+
+        .hearts-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 90px;
+            animation: float 2s ease-in-out infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            position: absolute;
+            content: "";
+            top: 40px;
+            width: 52px;
+            height: 80px;
+            border-radius: 50px 50px 0 0;
+            background: #ff7f7f;
+        }
+
+        .heart::before {
+            left: 50px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .heart::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translatey(0px);
+            }
+
+            50% {
+                transform: translatey(-20px);
+            }
+
+            100% {
+                transform: translatey(0px);
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Crossword Helper</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://github.com/technosophos/crossword-helper">GitHub</a>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
 
+    <h1 class="container mt-3">Crossword Bae ❤️</h1>
     <div class="container my-5">
-        <h1>Crossword Helper</h1>
         <div class="col-lg-8 px-0">
             <div class="mb-3">
-                <label for="prompt" class="form-label">Question</label>
-                <textarea class="form-control" id="prompt" rows="4"></textarea>
+                <label for="prompt" class="form-label">Hey Babe</label>
+                <textarea class="form-control w-100" id="prompt" rows="4"></textarea>
             </div>
             <div class="col-auto">
-                <button class="btn btn-primary mb-3" onclick="infer(event)">Get a Hint</button>
+                <button class="btn btn-primary mb-3" onclick="infer(event)">Send </button>
             </div>
 
 
@@ -80,7 +197,7 @@
             <div id="response"></div>
         </div>
     </div>
-
+    <div class="hearts-row"/>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>

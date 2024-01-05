@@ -1,10 +1,10 @@
-## Crossword Helper: LLM for your crossword solving needs
+## Crossword Bae: AI Boyfriend for your crossword solving needs
 
 Sometimes you need _help_ with your crossword clues, but don't just want the answers given to you. That's what Crossword Helper is for.
 
 This is a Spin app that can help you solve crossword puzzles. This probably won't help you get the exact answer to your puzzle, but it will help provide some background or synonyms or possibilities.
 
-> We livecoded part of this during a [Spin Live Code Tuesdays](https://www.youtube.com/live/aZRd0BAmZWE?si=2j3k2zttq6kFZdfS)
+This was forked from Matt Butcher's [Crossword Suggestion Helper](https://github.com/technosophos/crossword-helper)
 
 ## Prerequisites
 
